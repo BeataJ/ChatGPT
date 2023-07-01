@@ -36,6 +36,10 @@ async function main() {
             }
             console.log(colors.green('Bot: ') + completionText);
 
+            // Update history with user input and assistant response
+            chatHistory.push(['user', userInput]);
+            chatHistory.push(['assistant', completionText]);
+
         } catch(error) {
             console.error(colors.red(error));
         }
