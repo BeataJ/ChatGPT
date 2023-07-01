@@ -1,4 +1,4 @@
-
+import openai from "./config/open-ai.js";
 
 async function main() {
     const chatCompletion = await openai.createChatCompletion({
