@@ -17,13 +17,13 @@ async function main() {
             // Construct messages by iterating over the history
             const messages = chatHistory.map(([role, content])=> ({role, content }) )
 
+            // Add latest user input
+            messages.push({role: 'user', content: userInput})
+
             // call the API with user input
             const completion = await openai.createChatCompletion({
                 model: 'gpt-3.5-turbo',
-                messages: [{
-                    role: 'user',
-                    content: userInput
-                }]
+                messages: messages
             });
 
             // Get completion text/content
